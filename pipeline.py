@@ -106,6 +106,7 @@ def subprocess_listener(QUEUE, VIDEO_LIST, CSV_LIST, pauseEvent, fpath):
             if time(9, 0) <= now.time() <= time(17, 0):
                 print("Suspending analysis during working hours...")
                 pauseEvent.set()
+                Time.sleep(1600) #sleep for 30 minutes
             elif pauseEvent.is_set():
                 print("Restarting analysis...")
                 pauseEvent.clear()
